@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org"
+      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>Post Offices</h1>
+<table>
+  <tr>
+    <th >Name</th>
+    <th >City</th>
+    <th>Departures</th>
+
+  </tr>
+
+  <tr th:each="data : ${Data}">
+      <td th:text="${data.getName()}"></td>
+      <td th:text="${data.getCityname()}"></td>
+      <td th:each="dep : ${data.getDepartures()}">
+          <p th:text="${dep.getType()}"></p>
+          <p th:text="${dep.getDate()}"></p>
+          <br>
+      </td>
+
+  </tr>
+</table>
+
+
+</body>
+</html>

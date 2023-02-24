@@ -1,0 +1,22 @@
+
+
+spring:
+  main:
+    allow-circular-references: true
+  datasource:
+    url: "jdbc:postgresql://localhost:5432/postgres"
+    username: "postgres"
+    password: "QWEewq1010"
+  mail:
+    host: "smtp.yandex.ru"
+    username: "vlad.vlasov77@yandex.ru"
+    password: "slsnkfbeabbhkpcb"
+    port: "465"
+    protocol: "smtps"
+  jpa:
+    hibernate:
+      ddl-auto: update
+  session:
+    jdbc:
+      initialize-schema: always
+      table-name: "SPRING_SESSION"

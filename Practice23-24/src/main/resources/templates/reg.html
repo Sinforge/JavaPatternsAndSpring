@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org"
+      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+
+<head>
+    <meta charset="UTF-8">
+
+
+</head>
+
+
+<div id="mainContainer" align="center">
+
+
+    <section id="content-section">
+        <h1 align="center">Регистрация</h1>
+
+        <form th:action="@{/registration}" method="post" class="inp_auth_reg_form" align="left">
+
+            <div class="text-field">
+                <label class="text-field__label" for="username">Имя пользователя:</label>
+                <input class="text-field__input" type="text" name="username" placeholder="username" required>
+            </div>
+            <div class="text-field">
+                <label class="text-field__label" for="password">Пароль:</label>
+                <input class="text-field__input" type="password" name="password" placeholder="password" required>
+            </div>
+            <div><input type="submit" value="Зарегистрироваться" class="c-button submit"/></div>
+
+        </form>
+
+    </section>
+</div>
+</body>
+</html>

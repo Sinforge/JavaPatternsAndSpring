@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org"
+>
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <h1 th:text="${DataType}"></h1>
+    <table>
+        <tr>
+            <th th:text="Type"></th>
+            <th th:text="Date"></th>
+            <th>Office Name</th>
+            <th>City Name</th>
+        </tr>
+
+        <tr th:each="data : ${Data}">
+            <td th:text="${data.getType()}"></td>
+            <td th:text="${data.getDate()}"></td>
+            <td th:text="${data.getOffice().getName()}"></td>
+            <td th:text="${data.getOffice().getCityname()}"></td>
+
+        </tr>
+    </table>
+
+</body>
+</html>
