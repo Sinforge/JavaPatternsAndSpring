@@ -10,6 +10,5 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 @EnableJpaRepositories(basePackages = {
         "sinforge.practice22.Repo"
 })
-@EnableAspectJAutoProxy
 @ComponentScan
 public class DbConfig {}

@@ -8,9 +8,9 @@ import javax.persistence.*;
 import java.util.List;
 
 @Entity
-@Table(name="postofficeupdated")
 @Getter
 @Setter
+@Table(name="postofficeupdated")
 public class PostOffice {
     @Id
     @SequenceGenerator(name = "departure_seq", sequenceName =

@@ -33,6 +33,7 @@ public class MySchedulerService{
         List<Departure> departureList = departureService.getAll();
         List<PostOffice> postOfficeList = postOfficeService.getAll();
 
+
         StringBuilder departuresData = new StringBuilder();
         StringBuilder postofficeData = new StringBuilder();
         for(Departure d : departureList) {
@@ -41,13 +42,15 @@ public class MySchedulerService{
         for(PostOffice p : postOfficeList) {
             postofficeData.append(p.getId()).append(" ").append(p.getName()).append(" ").append(p.getCityname()).append("\n");
         }
+        System.out.println(departuresData.toString());
+        System.out.println(postofficeData.toString());
         FileWriter fileWriter = new FileWriter("C:\\Users\\vladv\\OneDrive\\Рабочий стол\\DirForDatabase\\departure.txt");
         fileWriter.write(departuresData.toString());
         fileWriter.close();
 
         FileWriter fileWriter1 = new FileWriter("C:\\Users\\vladv\\OneDrive\\Рабочий стол\\DirForDatabase\\postoffice.txt");
         fileWriter1.write(postofficeData.toString());
-        fileWriter.close();
+        fileWriter1.close();
 
     }
 }

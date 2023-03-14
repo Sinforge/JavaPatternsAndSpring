@@ -30,15 +30,18 @@ jar {
     }
 }
 task copyJarToBin(type: Copy) {
-    from file("$buildDir/libs/new_pract9-0.0.1.jar")
+    from file("$buildDir/libs/new_pract9-0.0.1-plain.jar")
     into "$rootDir"
 }
 
 
 docker {
     name "${project.name}:${project.version}"
-    files 'new_pract9-0.0.1.jar'
+    files 'new_pract9-0.0.1-plain.jar'
 }
+
+
+
 dockerRun {
     name "${project.name}"
     image "${project.name}:${project.version}"

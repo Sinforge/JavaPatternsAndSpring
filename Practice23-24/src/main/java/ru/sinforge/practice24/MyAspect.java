@@ -27,6 +27,6 @@ public class MyAspect {
 
 
 
-    @Pointcut("within(sinforge.practice20.Services.*)")
+    @Pointcut("within(ru.sinforge.practice24.Services.*)")
     public void allLog(){}
 }

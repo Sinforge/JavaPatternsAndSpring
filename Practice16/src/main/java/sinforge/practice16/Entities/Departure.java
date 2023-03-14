@@ -6,9 +6,9 @@ import lombok.Setter;
 import javax.persistence.*;
 
 @Entity
-@Table(name="departureupdated")
 @Getter
 @Setter
+@Table(name="departureupdated")
 public class Departure{
     @Id
     @SequenceGenerator(name = "departure_seq", sequenceName =
