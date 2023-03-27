@@ -11,7 +11,13 @@ sourceCompatibility = '17'
 repositories {
     mavenCentral()
 }
-
+jar {
+    manifest {
+        attributes(
+                'Main-Class': 'sinforge.practice12.Practice12Application'
+        )
+    }
+}
 dependencies {
     implementation 'org.springframework.boot:spring-boot-starter'
     testImplementation 'org.springframework.boot:spring-boot-starter-test'

@@ -41,13 +41,13 @@ public class DepartureController {
         return "dataDepartures";
 
     }
-    @GetMapping(value="/all/{sort_field}")
-    public String sortedAll(Model model, @PathVariable String sort_field) {
+    @GetMapping(value="/all/{sort_field}/{value}")
+    public String sortedAll(Model model, @PathVariable String sort_field, @PathVariable String value) {
         if(sort_field.equals("type")) {
-            model.addAttribute("Data", departureService.sortByType());
+            model.addAttribute("Data", departureService.filterByType(value));
         }
         else if  (sort_field.equals("date")) {
-            model.addAttribute("Data", departureService.sortByDate());
+            model.addAttribute("Data", departureService.filterByDate(value));
 
         }
         else {

@@ -39,15 +39,15 @@ public class PostOfficeController {
 
     }
 
-    @GetMapping(value="/all/{sort_field}")
-    public String sortedAll(Model model, @PathVariable String sort_field) {
+    @GetMapping(value="/all/{sort_field}/{value}")
+    public String sortedAll(Model model, @PathVariable String sort_field, @PathVariable String value) {
         model.addAttribute("DataType", "Post Offices");
         model.addAttribute("DataColumns", new String[]{"Name", "City"});
         if(sort_field.equals("name")) {
-            model.addAttribute("Data", postOfficeService.sortByName());
+            model.addAttribute("Data", postOfficeService.filterByName(value));
         }
         else if  (sort_field.equals("city")) {
-            model.addAttribute("Data", postOfficeService.sortByCity());
+            model.addAttribute("Data", postOfficeService.filterByCity(value));
 
         }
         else {

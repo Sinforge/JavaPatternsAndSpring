@@ -39,20 +39,20 @@ public class PostOfficeService {
                 PostOffice.class).getResultList();
     }
 
-    public List<PostOffice> sortByName() {
+    public List<PostOffice> filterByName(String name) {
         CriteriaBuilder builder = session.getCriteriaBuilder();
         CriteriaQuery<PostOffice> postOfficeCriteriaQuery = builder.createQuery(PostOffice.class);
         Root<PostOffice> root = postOfficeCriteriaQuery.from(PostOffice.class);
 
-        postOfficeCriteriaQuery.select(root).orderBy(builder.asc(root.get("name")));
+        postOfficeCriteriaQuery.select(root).where(builder.equal(root.get("name"), name));
         return session.createQuery(postOfficeCriteriaQuery).getResultList();
     }
-    public List<PostOffice> sortByCity() {
+    public List<PostOffice> filterByCity(String city) {
         CriteriaBuilder builder = session.getCriteriaBuilder();
         CriteriaQuery<PostOffice> postOfficeCriteriaQuery = builder.createQuery(PostOffice.class);
         Root<PostOffice> root = postOfficeCriteriaQuery.from(PostOffice.class);
 
-        postOfficeCriteriaQuery.select(root).orderBy(builder.asc(root.get("cityname")));
+        postOfficeCriteriaQuery.select(root).where(builder.equal(root.get("city"), city));
         return session.createQuery(postOfficeCriteriaQuery).getResultList();
     }
 }

@@ -45,20 +45,20 @@ public class DepartureService {
         return session.createQuery("select d from Departure d",
                 Departure.class).getResultList();
     }
-    public List<Departure> sortByType() {
+    public List<Departure> filterByType(String type) {
         CriteriaBuilder builder = session.getCriteriaBuilder();
         CriteriaQuery<Departure> queryCriteriaQuery = builder.createQuery(Departure.class);
         Root<Departure> root = queryCriteriaQuery.from(Departure.class);
 
-        queryCriteriaQuery.select(root).orderBy(builder.asc(root.get("type")));
+        queryCriteriaQuery.select(root).where(builder.equal(root.get("type"), type));
         return session.createQuery(queryCriteriaQuery).getResultList();
     }
-    public List<Departure> sortByDate() {
+    public List<Departure> filterByDate(String date) {
         CriteriaBuilder builder = session.getCriteriaBuilder();
         CriteriaQuery<Departure> postOfficeCriteriaQuery = builder.createQuery(Departure.class);
         Root<Departure> root = postOfficeCriteriaQuery.from(Departure.class);
 
-        postOfficeCriteriaQuery.select(root).orderBy(builder.asc(root.get("date")));
+        postOfficeCriteriaQuery.select(root).where(builder.equal(root.get("date"), date));
         return session.createQuery(postOfficeCriteriaQuery).getResultList();
     }
 
